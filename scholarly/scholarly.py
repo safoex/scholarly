@@ -25,9 +25,9 @@ _HEADERS = {
 _HOST = 'https://scholar.google.com'
 _AUTHSEARCH = '/citations?view_op=search_authors&hl=en&mauthors={0}'
 _CITATIONAUTH = '/citations?user={0}&hl=en'
-_CITATIONPUB = '/citations?view_op=view_citation&citation_for_view={0}'
+_CITATIONPUB = '/citations?view_op=view_citation&citation_for_view={0}&hl=en'
 _KEYWORDSEARCH = '/citations?view_op=search_authors&hl=en&mauthors=label:{0}'
-_PUBSEARCH = '/scholar?q={0}'
+_PUBSEARCH = '/scholar?q={0}&hl=en'
 _SCHOLARPUB = '/scholar?oi=bibs&hl=en&cites={0}'
 
 _CITATIONAUTHRE = r'user=([\w-]*)'
@@ -187,6 +187,8 @@ class Publication(object):
                 val = item.find(class_='gsc_vcd_value')
                 if key == 'Authors':
                     self.bib['author'] = ' and '.join([i.strip() for i in val.text.split(',')])
+                elif key == 'Conference':
+                    self.bib['conference'] = val.text
                 elif key == 'Journal':
                     self.bib['journal'] = val.text
                 elif key == 'Volume':
@@ -202,7 +204,10 @@ class Publication(object):
                 elif key == 'Description':
                     if val.text[0:8].lower() == 'abstract':
                         val = val.text[9:].strip()
-                    self.bib['abstract'] = val
+                    else:
+                        val = val.text
+                    cleanr = re.compile('<.*?>')
+                    self.bib['abstract'] = re.sub(cleanr, '', val)
                 elif key == 'Total citations':
                     self.id_scholarcitedby = re.findall(_SCHOLARPUBRE, val.a['href'])[0]
 
