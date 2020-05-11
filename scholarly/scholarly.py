@@ -185,6 +185,7 @@ class Publication(object):
             for item in soup.find_all('div', class_='gs_scl'):
                 key = item.find(class_='gsc_vcd_field').text
                 val = item.find(class_='gsc_vcd_value')
+                print(key)
                 if key == 'Authors':
                     self.bib['author'] = ' and '.join([i.strip() for i in val.text.split(',')])
                 elif key == 'Conference':

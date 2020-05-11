@@ -28,7 +28,7 @@ author_profile: true
     publications_path_prefix = "_pages/publications/"
     page_path = "_pages/publications.md"
     config_path = "_config.yml"
-    markdown_without_abstract = "<b>\"%s\"</b>, %s, <i>%s</i>%s"
+    markdown_without_abstract = "<b>\"%s\"</b>, %s, <i>%s</i><br/>%s"
 
     test_dict = {'author': {'name': 'Evgenii Safronov', 'scholar_query': 'Evgenii Safronov, IIT'}}
 
@@ -158,9 +158,10 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--path', help="path to github forms website root", type=str, default='')
+    parser.add_argument('--test', help="test locally")
     args = parser.parse_args()
 
     path = args.path
 
-    test = AcademicPagesExporter(path)
+    test = AcademicPagesExporter(None if args.test else path)
     test.update_publications()
