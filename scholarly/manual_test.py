@@ -18,8 +18,7 @@ class AcademicPagesExporter:
         </details>
         """
     publications_page_prefix = \
-"""
----
+"""---
 layout: archive
 title: "Publications"
 permalink: /publications/
@@ -140,7 +139,9 @@ author_profile: true
         text += '\n'
 
         for publ in author.publications:
-            filename, md = self.make_publication_markdown_from_scholar(publ.fill().__dict__)
+            p = publ.fill()
+            print(p)
+            filename, md = self.make_publication_markdown_from_scholar(p.__dict__)
 
             text += md
             text += '\n'
@@ -160,12 +161,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     path = args.path
-
-    from os import listdir
-    from os.path import isfile, join
-
-    everything = [f for f in listdir(path)]
-    print(everything)
 
     test = AcademicPagesExporter(path)
     test.update_publications()
