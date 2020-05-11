@@ -154,13 +154,12 @@ class AcademicPagesExporter:
 
 
 if __name__ == "__main__":
+
     parser = argparse.ArgumentParser()
-    parser.add_argument('--path', help="path to github forms website root", type=str, default='../../')
+    parser.add_argument('--path', help="path to github forms website root", type=str, default='')
     args = parser.parse_args()
 
     path = args.path
-    if path[-1] != '/':
-        path += '/'
-        
+
     test = AcademicPagesExporter(path)
     test.update_publications()

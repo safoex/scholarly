@@ -1,0 +1,9 @@
+name: Updates publications from Google Scholar
+author: safoex
+description: comes with automated academicspages template
+runs:
+  using: 'docker'
+  image: 'docker://decathlon/wiki-page-creator-action:2.0.2'
+branding:
+  icon: tag
+  color: blue
