@@ -44,7 +44,7 @@ def use_proxy(http='socks5://127.0.0.1:9050', https='socks5://127.0.0.1:9050'):
     """ Routes scholarly through a proxy (e.g. tor).
         Requires pysocks
         Proxy must be running."""
-    _SESSION.proxies ={
+    _SESSION.proxies = {
             'http': http,
             'https': https
     }

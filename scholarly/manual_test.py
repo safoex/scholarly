@@ -11,7 +11,7 @@ class AcademicPagesExporter:
     markdown_with_abstract = \
         """
         <details>
-            <summary> <b>"%s"</b>, %s, <i>%s</i><br/>%s
+            <summary> <b>"%s"</b>, %s, <i>%s</i>\n%s
             </summary>
             
         %s
@@ -28,7 +28,7 @@ author_profile: true
     publications_path_prefix = "_pages/publications/"
     page_path = "_pages/publications.md"
     config_path = "_config.yml"
-    markdown_without_abstract = "<b>\"%s\"</b>, %s, <i>%s</i><br/>%s"
+    markdown_without_abstract = "<b>\"%s\"</b>, %s, <i>%s</i>\n%s"
 
     test_dict = {'author': {'name': 'Evgenii Safronov', 'scholar_query': 'Evgenii Safronov, IIT'}}
 
@@ -45,6 +45,8 @@ author_profile: true
         self.name = author_info['name'].strip()
         if self.author_id_path in author_info:
             self.author_id = author_info[self.author_id_path]
+        # scholarly.use_proxy(http='socks5://181.101.220.136:1080',
+        #                     https='socks5://181.101.220.136:1080')
 
     def make_publication_markdown_from_scholar(self, pub):
         title = pub['bib']['title']
