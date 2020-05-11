@@ -18,14 +18,14 @@ class AcademicPagesExporter:
         </details>
         """
     publications_page_prefix = \
-        """
-        ---
-        layout: archive
-        title: "Publications"
-        permalink: /publications/
-        author_profile: true
-        ---
-        """
+"""
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+"""
     publications_path_prefix = "_pages/publications/"
     page_path = "_pages/publications.md"
     config_path = "_config.yml"
