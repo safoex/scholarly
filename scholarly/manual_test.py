@@ -11,7 +11,7 @@ class AcademicPagesExporter:
     markdown_with_abstract = \
         """
         <details>
-            <summary> <b>"%s"</b>, %s, <i>%s</i>%s
+            <summary> <b>"%s"</b>, %s, <i>%s</i><br/>%s
             </summary>
             
         %s
