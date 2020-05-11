@@ -3,7 +3,7 @@ author: safoex
 description: comes with automated academicspages template
 runs:
   using: 'docker'
-  image: 'docker://decathlon/wiki-page-creator-action:2.0.2'
+  image: 'Dockerfile'
 branding:
   icon: tag
   color: blue
