@@ -11,7 +11,7 @@ class AcademicPagesExporter:
     markdown_with_abstract = \
         """
         <details>
-            <summary> <b>"%s"</b>, %s, <i>%s</i>\n%s
+            <summary> <b>"%s"</b>, %s, <i>%s</i><br/>%s
             </summary>
             
         %s
@@ -28,7 +28,7 @@ author_profile: true
     publications_path_prefix = "_pages/publications/"
     page_path = "_pages/publications.md"
     config_path = "_config.yml"
-    markdown_without_abstract = "<b>\"%s\"</b>, %s, <i>%s</i>\n%s"
+    markdown_without_abstract = "<b>\"%s\"</b>, %s, <i>%s</i><br/>%s"
 
     test_dict = {'author': {'name': 'Evgenii Safronov', 'scholar_query': 'Evgenii Safronov, IIT'}}
 
